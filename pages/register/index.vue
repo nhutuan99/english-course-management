@@ -15,6 +15,7 @@
                 prepend-inner-icon="mdi-account"
                 clearable
                 :rules="[() => !!fullname || 'This field is required']"
+                @keyup.exact="handleKeyUp"
               ></v-text-field>
               <v-text-field
                 label="Email"
@@ -25,6 +26,7 @@
                 type="email"
                 class="rounded-0"
                 clearable
+                @keyup.exact="handleKeyUp"
               ></v-text-field>
               <v-text-field
                 :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
@@ -38,6 +40,7 @@
                 prepend-inner-icon="mdi-lock"
                 class="rounded-0"
                 clearable
+                @keyup.exact="handleKeyUp"
               ></v-text-field>
               <v-text-field
                 prepend-inner-icon="mdi-lock-open"
@@ -51,6 +54,7 @@
                 name="confirmPassword"
                 class="rounded-0"
                 clearable
+                @keyup.exact="handleKeyUp"
               ></v-text-field>
               <p class="text-error">{{ messageError }}</p>
               <div class="btn-register">
@@ -121,6 +125,10 @@ export default {
             return (this.messageError = e.data.error.message)
           })
       }
+    },
+    handleKeyUp() {
+      this.messageError = ''
+      console.log('handle key up')
     }
   }
 }

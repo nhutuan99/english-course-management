@@ -1,0 +1,13 @@
+@import './../_placeholders/exhancement';
+
+@each $opacity in $opacity-values {
+  .opacity-#{$opacity} {
+    @extend %opacity-#{$opacity};
+  }
+}
+
+@each $cursor in $cursor-values {
+  .cursor-#{$cursor} {
+    @extend %cursor-#{$cursor};
+  }
+}

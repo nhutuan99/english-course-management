@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav>
-      <ul>
+      <ul style="position:relative">
         <li>
           <nuxt-link to="/">Home</nuxt-link>
         </li>
@@ -14,14 +14,32 @@
         <li>
           <nuxt-link to="/settings">Settings</nuxt-link>
         </li>
+        <!-- <li
+          v-show="isAuthenticated === null"
+          style="position:absolute; right: 100px;"
+        >
+          <button class="btn btn_success">
+            <nuxt-link to="/login">Login</nuxt-link>
+          </button>
+        </li> -->
       </ul>
     </nav>
   </header>
 </template>
 
-<style lang="scss">
+<script>
+export default {
+  // computed: {
+  //   isAuthenticated() {
+  //     return this.$store.getters.isAuthenticated
+  //   }
+  // }
+}
+</script>
+
+<style lang="scss" scoped>
 header {
-  background: #000;
+  background: #000 !important;
   color: #fff;
   height: 60px;
   nav,
@@ -38,10 +56,14 @@ header {
     li {
       margin: 0 1.5rem;
       a {
-        color: #ffffff;
+        color: #ffffff !important;
         text-decoration: none;
         &:hover {
-          text-decoration: underline;
+          text-decoration: none;
+          color: yellow !important;
+        }
+        &.nuxt-link-exact-active {
+          color: yellow !important;
         }
       }
     }

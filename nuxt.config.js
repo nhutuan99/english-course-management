@@ -4,7 +4,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Manage English Course',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -19,26 +19,36 @@ module.exports = {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap'
+          'https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap'
       }
     ]
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#ff6500' },
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/rhpteam.min.css', '~/assets/css/external.css'],
+  css: [
+    '~/assets/css/rhpteam.min.css',
+    '~/assets/css/external.css',
+    '~/assets/scss/core/app.scss'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '@plugins/core-component.js',
+    '@/plugins/modals/v-modal.js',
+    { src: '~/plugins/plugins.client', mode: 'client' }
+  ],
+
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
+    '@nuxtjs/vuetify',
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
@@ -48,24 +58,54 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/sentry',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/bootstrap-vue',
+    'nuxt-user-agent'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
-  /*
-   ** Build configuration
-   */
+  axios: {
+    baseURL:
+      process.env.BASE_API_URL ||
+      'https://nuxt-first-app-342d9-default-rtdb.asia-southeast1.firebasedatabase.app/',
+    credentials: false,
+    debug: false,
+    retry: {
+      retries: 3
+    }
+  },
+  
+  bootstrapVue: {
+    icons: true,
+    bootstrapCSS: false,
+    bootstrapVueCSS: false
+  },
+
+  sentry: {
+    dsn: config.get('env').SENTRY_DSN,
+    config: { environment: config.get('env').ENVIRONMENT }
+  },
   build: {
     /*
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    baseApi:
+      process.env.BASE_API_URL ||
+      'https://nuxt-first-app-342d9-default-rtdb.asia-southeast1.firebasedatabase.app/',
+    API_KEY: 'AIzaSyCvQXRWFjhfrC4GT0PoOnEXvnl97a0HY1M'
+  },
+
+  router: {
+    middleware: ['check-browser']
   }
 }

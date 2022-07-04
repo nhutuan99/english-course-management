@@ -1,0 +1,30 @@
+@import '_utilities/basic';
+@import '_utilities/typography';
+@import '_utilities/layout';
+@import '_utilities/exhancement';
+
+// line
+.line-horizontal {
+  width: 100%;
+  text-align: center;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  line-height: 0.1rem;
+  margin: 10px 0 20px;
+
+  span {
+    padding: 0 10px;
+  }
+}
+
+// button
+.btn-primary-gradient {
+  background: linear-gradient(98.57deg, #eb4a26 2%, #e01e1e 96.21%);
+}
+
+// Materialize merge
+@media only screen and (max-width: 992px) {
+  .hide-on-med-and-down {
+    display: none !important;
+  }
+}

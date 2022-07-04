@@ -1,0 +1,115 @@
+// Breakpoints
+$xs: 0;
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1536px;
+
+$dusty-gray: (
+  50: #ffffff,
+  100: #ffffff,
+  200: #e8e8e8,
+  300: #cecece,
+  400: #b4b4b4,
+  500: #9b9b9b,
+  600: #828282,
+  700: #686868,
+  800: #4e4e4e,
+  900: #353535,
+);
+
+$gray-600: #{map-get($dusty-gray, 600)} !default;
+
+// commons
+$transition-duration: 0.3s !default;
+
+// color
+$orange: #ff6500 !default;
+$blue: #1a93f6 !default;
+$primary: $orange !default;
+$secondary: $blue !default;
+$dark: #1f1f1f !default;
+$gray: #9b9b9b !default;
+$dark-gray: #4a4a4a !default;
+$darken: #090909 !default;
+$tpb-purple: #42236a !default;
+
+$grid-breakpoints: (
+  xs: $xs,
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+  xxl: $xxl,
+) !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1180px,
+) !default;
+
+$theme-colors: (
+  'dark-gray': $dark-gray,
+  'darken': $darken,
+  'black': #000,
+  'tpb-purple': $tpb-purple,
+);
+
+// link | a
+$link-color: #fff !default;
+$link-hover-decoration: none !default;
+$link-hover-color: $primary !default;
+
+// font
+$font-family-sans-serif: 'SFProDisplay', Arial, sans-serif !default;
+$font-size-base: 14 !default;
+$font-weight-bold: 800 !default;
+
+// line-height
+$line-height-base: 1.35 !default;
+
+// radius
+$border-radius: 0.2rem !default;
+$border-radius-sm: 0.15rem !default;
+
+// navbar
+$navbar-padding-y: 0 !default;
+$navbar-nav-link-padding-x: 1rem !default;
+$navbar-nav-link-padding-y: 1rem !default;
+$navbar-toggler-padding-y: 1rem !default;
+$navbar-toggler-padding-x: 1rem !default;
+$navbar-dark-color: (map-get($dusty-gray, 500)) !default;
+$navbar-dark-hover-color: $primary !default;
+$navbar-dark-toggler-border-color: transparent !default;
+
+// dropdown
+$dropdown-bg: $dark !default;
+$dropdown-link-color: #fff !default;
+$dropdown-font-size: 1rem !default;
+$dropdown-link-hover-bg: transparent !default;
+$dropdown-link-hover-color: $primary !default;
+$dropdown-item-padding-y: 0.5rem !default;
+
+// input
+$input-padding-y: 0.5rem !default;
+$input-padding-x: 0.75rem !default;
+$input-font-size: 1rem !default;
+$input-placeholder-color: (map-get($dusty-gray, 300)) !default;
+
+// button
+$btn-font-size: 1rem !default;
+$btn-padding-y: 0.5rem !default;
+$btn-padding-x: 1rem !default;
+$btn-padding-x-sm: 0.75rem !default;
+
+// modal
+$modal-content-bg: $dark !default;
+$modal-content-border-width: 0 !default;
+$modal-backdrop-opacity: 0.8 !default;
+
+// close
+$close-text-shadow: none !default;
+$close-font-weight: 300 !default;

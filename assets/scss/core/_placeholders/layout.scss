@@ -1,0 +1,49 @@
+// Variables
+$z-indexes: 0, 1, 10, 20, 30;
+$positions: static, fixed, absolute, relative, sticky;
+$displays: block, inline-block, inline, flex, inline-flex, hidden, visible,
+  invisible;
+$common-sizes: 8, 16, 20, 24, 28, 32, 36, 40, 44, 48, 56, 80, 92, 96, 100, 140;
+
+// Functions
+@function spacing($size) {
+  $space: $size/4;
+  @return $space;
+}
+
+// Placeholders
+@each $z in $z-indexes {
+  %z-#{$z} {
+    z-index: $z;
+  }
+}
+
+@each $display in $displays {
+  %#{$display} {
+    display: $display;
+  }
+}
+
+@each $pos in $positions {
+  %#{$pos} {
+    position: $pos;
+  }
+}
+
+@each $size in $common-sizes {
+  %h-#{$size} {
+    height: #{spacing($size)}rem;
+  }
+
+  %w-#{$size} {
+    width: #{spacing($size)}rem;
+  }
+
+  %max-h-#{$size} {
+    max-height: #{spacing($size)}rem;
+  }
+
+  %max-w-#{$size} {
+    max-width: #{spacing($size)}rem;
+  }
+}

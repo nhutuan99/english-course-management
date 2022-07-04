@@ -1,0 +1,20 @@
+@mixin make-centering-x() {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin make-centering-y() {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin make-centering($direction: false) {
+  @if $direction == false {
+    @include make-centering-x();
+    @include make-centering-y();
+  } @else if $direction == x {
+    @include make-centering-x();
+  } @else if $direction == y {
+    @include make-centering-y();
+  }
+}

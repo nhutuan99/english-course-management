@@ -2,8 +2,9 @@
   <footer class="text_center">
     <hr class="my_5" />
     <p>
-      Design by <a href="https://www.facebook.com/trantoan.960">Sky Albert</a>
+      Design by
+      <a href="https://www.facebook.com/nhutuan.truong.9">Nhu Tuan</a>
     </p>
-    <p>2020</p>
+    <p>@Copyright 2022</p>
   </footer>
 </template>

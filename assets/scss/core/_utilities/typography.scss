@@ -1,0 +1,35 @@
+@import './../_placeholders/typography.scss';
+@import './../../variables';
+
+@each $weight in map-keys($map-font-weights) {
+  .font-weight-#{'' + $weight} {
+    @extend %font-weight-#{'' + $weight};
+  }
+}
+
+@each $size in map-keys($map-font-sizes) {
+  .text-#{$size} {
+    @extend %text-#{$size};
+  }
+}
+
+@each $breakpoint, $val in $grid-breakpoints {
+  @if not($val == 0) {
+    @media screen and (min-width: $val) {
+      @each $size in map-keys($map-font-sizes) {
+        .#{$breakpoint}\:text-#{$size} {
+          @include font-size($size);
+        }
+      }
+    }
+  }
+}
+
+@for $i from 1 through 3 {
+  .line-clamp-#{$i} {
+    @include line-clamp($i);
+  }
+}
+.line-clamp-none {
+  @include line-clamp(none);
+}

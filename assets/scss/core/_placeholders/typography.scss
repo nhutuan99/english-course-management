@@ -1,0 +1,106 @@
+$map-font-sizes: (
+  sm: (
+    font-size: 0.875rem,
+    line-height: 1.25rem,
+  ),
+  base: (
+    font-size: 1rem,
+    line-height: 1.5rem,
+  ),
+  lg: (
+    font-size: 1.125rem,
+    line-height: 1.75rem,
+  ),
+  xl: (
+    font-size: 1.25rem,
+    line-height: 1.75rem,
+  ),
+  2xl: (
+    font-size: 1.5rem,
+    line-height: 2rem,
+  ),
+  3xl: (
+    font-size: 1.875rem,
+    line-height: 2.25rem,
+  ),
+  4xl: (
+    font-size: 2.25rem,
+    line-height: 2.5rem,
+  ),
+  5xl: (
+    font-size: 3rem,
+    line-height: 1,
+  ),
+  6xl: (
+    font-size: 3.75rem,
+    line-height: 1,
+  ),
+  7xl: (
+    font-size: 4.5rem,
+    line-height: 1,
+  ),
+  8xl: (
+    font-size: 6rem,
+    line-height: 1,
+  ),
+);
+
+$map-font-weights: (
+  light: 300,
+  normal: 400,
+  semibold: 500,
+  bold: 800,
+  black: 900,
+);
+
+// Mixins
+@mixin font-size($size) {
+  $font: map-get($map-font-sizes, $size);
+
+  @if $font {
+    $font-size: map-get($font, font-size);
+    $line-height: map-get($font, line-height);
+
+    font-size: #{$font-size} !important;
+    line-height: #{$line-height};
+  }
+}
+
+@mixin font-weight($weight) {
+  $font: map-get($map-font-weights, $weight);
+  font-weight: #{$font} !important;
+}
+
+@mixin line-clamp($line) {
+  @if $line == none {
+    -webkit-line-clamp: unset;
+  } @else {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: #{$line};
+  }
+}
+
+// font-weight
+@each $key in map-keys($map-font-weights) {
+  %font-weight-#{'' + $key} {
+    @include font-weight($key);
+  }
+}
+
+// font-size
+@each $key in map-keys($map-font-sizes) {
+  %text-#{$key} {
+    @include font-size($key);
+  }
+}
+
+@for $i from 1 through 3 {
+  %line-clamp-#{$i} {
+    @include line-clamp($i);
+  }
+}
+%line-clamp-none {
+  @include line-clamp(none);
+}

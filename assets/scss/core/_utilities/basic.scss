@@ -1,0 +1,38 @@
+@import './../_placeholders/basic';
+
+@each $color in map-keys($colors) {
+  @each $key, $val in map-get($colors, $color) {
+    .border-#{'' + $color}-#{$key} {
+      @extend %border-#{'' + $color}-#{$key};
+    }
+
+    .text-#{'' + $color}-#{$key} {
+      @extend %text-#{'' + $color}-#{$key};
+    }
+  }
+}
+
+.border-transparent {
+  @extend %border-transparent;
+}
+
+// Typo
+// - Typo: line-height
+@each $leading, $val in map-get($typo, leading) {
+  .leading-#{$leading} {
+    @extend %leading-#{$leading};
+  }
+}
+
+// - Typo: letter-spacing
+@each $tracking, $val in map-get($typo, tracking) {
+  .tracking-#{$tracking} {
+    @extend %tracking-#{$tracking};
+  }
+}
+
+@each $key, $val in $rounded {
+  .rounded-#{$key} {
+    @extend %rounded-#{$key};
+  }
+}

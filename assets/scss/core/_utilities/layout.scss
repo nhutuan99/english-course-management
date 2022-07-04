@@ -1,0 +1,37 @@
+@import './../_placeholders/layout.scss';
+
+@each $z in $z-indexes {
+  .z-#{$z} {
+    @extend %z-#{$z};
+  }
+}
+
+@each $pos in $positions {
+  .#{$pos} {
+    @extend %#{$pos};
+  }
+}
+
+@each $display in $displays {
+  .#{$display} {
+    @extend %#{$display};
+  }
+}
+
+@each $size in $common-sizes {
+  .h-#{$size} {
+    @extend %h-#{$size};
+  }
+
+  .w-#{$size} {
+    @extend %w-#{$size};
+  }
+
+  .max-h-#{$size} {
+    @extend %max-h-#{$size};
+  }
+
+  .max-w-#{$size} {
+    @extend %max-w-#{$size};
+  }
+}

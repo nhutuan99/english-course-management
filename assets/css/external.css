@@ -1,12 +1,14 @@
-a, a:hover {
+a,
+a:hover {
   text-decoration: none;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
   margin: 0;
   padding: 0;

@@ -30,19 +30,11 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [
-    '~/assets/css/rhpteam.min.css',
-    '~/assets/css/external.css',
-    '~/assets/scss/core/app.scss'
-  ],
+  css: ['~/assets/css/rhpteam.min.css', '~/assets/css/external.css'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '@plugins/core-component.js',
-    '@/plugins/modals/v-modal.js',
-    { src: '~/plugins/plugins.client', mode: 'client' }
-  ],
+  plugins: ['@plugins/core-component.js', '@/plugins/modals/v-modal.js'],
 
   /*
    ** Nuxt.js dev-modules
@@ -72,24 +64,9 @@ module.exports = {
   axios: {
     baseURL:
       process.env.BASE_API_URL ||
-      'https://nuxt-first-app-342d9-default-rtdb.asia-southeast1.firebasedatabase.app/',
-    credentials: false,
-    debug: false,
-    retry: {
-      retries: 3
-    }
-  },
-  
-  bootstrapVue: {
-    icons: true,
-    bootstrapCSS: false,
-    bootstrapVueCSS: false
+      'https://nuxt-first-app-342d9-default-rtdb.asia-southeast1.firebasedatabase.app/'
   },
 
-  sentry: {
-    dsn: config.get('env').SENTRY_DSN,
-    config: { environment: config.get('env').ENVIRONMENT }
-  },
   build: {
     /*
      ** You can extend webpack config here
@@ -106,6 +83,6 @@ module.exports = {
   },
 
   router: {
-    middleware: ['check-browser']
+    middleware: ['check-auth']
   }
 }
